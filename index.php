@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $table = $_REQUEST['table'];
 
     if (empty($dbname) || empty($table)) {
-        echo "Bad Request!";
+        echo json_encode(array("message"=>"Bad Request!"), JSON_PRETTY_PRINT);
     } else {
         $connector = new MysqlDBconnect($dbname);
         $res = $connector->SELECT_ALL($table);
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $table = $_REQUEST['table'];
 
     if (empty($dbname) || empty($table)) {
-        echo "Bad Request!";
+        echo json_encode(array("message"=>"Bad Request!"), JSON_PRETTY_PRINT);
     } else {
         $connector = new MysqlDBconnect($dbname);
         $res = $connector->SELECT_ALL($table);
