@@ -5,11 +5,11 @@ class MysqlDBconnect
     public function __construct($dbname = null)
     {
         // $hostname = "localhost";
-        $hostname = "moulasilz.theworkpc.com";
+        $hostname = "localhost";
         $port = 3306;
         // $port = 3307;
-        $user = "moulasilz";
-        $passwd = "123456";
+        $user = "root";
+        $passwd = "";
         $dbname = $dbname;
         $conn = mysqli_connect($hostname, $user, $passwd, null, $port);
         $conn->set_charset("utf8mb4");
