@@ -1,5 +1,5 @@
 <?php
-header('Content-type: text/javascript');
+header('Content-type: text/javascript;charset=utf-8');
 require "./config/DBconfig.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -1,15 +1,18 @@
 <?php
+header('Content-type: text/javascript;charset=utf-8');
 class MysqlDBconnect
 {
     public function __construct($dbname = null)
     {
-        $hostname = "localhost";
+        // $hostname = "localhost";
+        $hostname = "moulasilz.theworkpc.com";
         $port = 3306;
         // $port = 3307;
-        $user = "root";
-        $passwd = "moulasilz";
+        $user = "moulasilz";
+        $passwd = "123456";
         $dbname = $dbname;
         $conn = mysqli_connect($hostname, $user, $passwd, null, $port);
+        $conn->set_charset("utf8mb4");
         if (!$conn) {
             $this->error("Connection attempt failed");
         }
@@ -49,9 +52,6 @@ class MysqlDBconnect
             $this->error($message);
             return false;
         }
-        // if (!(preg_match("^select", $sql) || eregi("^show", $sql))) {
-        //     return true;
-        // } else {
         $count = 0;
         $data = array();
         while ($row = mysqli_fetch_array($results, MYSQLI_ASSOC)) {
@@ -65,6 +65,7 @@ class MysqlDBconnect
     public function SELECT_ALL($table = null)
     {
         $sql = "SELECT * FROM $table";
-        return $this->sql_query($sql);
+        $res =$this->sql_query($sql);
+        return $res;
     }
 }
